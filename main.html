@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Главная | Курсовая работа</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=SF+Pro+Display:wght@300;400;500&family=SF+Pro+Text:wght@400;500&display=swap');
+        
+        :root {
+            --primary: #2c2c2e;
+            --secondary: #3a3a3c;
+            --accent: #007aff;
+            --text: #e5e5ea;
+            --text-secondary: #aeaeb2;
+            --background: #1c1c1e;
+            --card: rgba(44, 44, 46, 0.85);
+            --hover-bg: rgba(255, 255, 255, 0.1);
+        }
+        
+        body {
+            font-family: 'SF Pro Text', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                        url('https://cdn.shazoo.ru/75701_D5vJhZ9Rms_1401865948_watch_dogs_dedsec_str.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: var(--text);
+            min-height: 100vh;
+        }
+        
+        header {
+            background: rgba(44, 44, 46, 0.8);
+            color: var(--text);
+            padding: 1.5rem 2rem;
+            box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+        }
+        
+        h1, h2, h3, h4 {
+            font-family: 'SF Pro Display', sans-serif;
+            font-weight: 500;
+            margin: 0;
+        }
+        
+        h1 {
+            font-size: 24px;
+        }
+        
+        .main-content {
+            padding: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .welcome-section {
+            margin-top: 1.5rem;
+        }
+        
+        .welcome-card {
+            background: var(--card);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+        }
+        
+        .welcome-title {
+            font-size: 28px;
+            margin-bottom: 1rem;
+            color: white;
+        }
+        
+        .welcome-text {
+            color: var(--text-secondary);
+            line-height: 1.7;
+            max-width: 700px;
+        }
+        
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        
+        .feature-card {
+            background: var(--card);
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            min-height: 150px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .feature-content {
+            transition: all 0.4s ease;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        /* Стиль для карточек с несколькими вариантами */
+        .option-items {
+            position: absolute;
+            top: 0;
+            right: -200px;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 10px;
+            padding-right: 20px;
+            transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.1);
+        }
+        
+        .option-item {
+            background: rgba(0, 122, 255, 0.2);
+            padding: 8px 15px;
+            border-radius: 20px;
+            transform: translateX(50px);
+            opacity: 0;
+            transition: all 0.4s ease;
+            cursor: pointer;
+            text-align: right;
+            border: 1px solid rgba(0, 122, 255, 0.3);
+        }
+        
+        .option-item:hover {
+            background: rgba(0, 122, 255, 0.4);
+        }
+        
+        .option-item:nth-child(1) { transition-delay: 0.1s; }
+        .option-item:nth-child(2) { transition-delay: 0.2s; }
+        .option-item:nth-child(3) { transition-delay: 0.3s; }
+        
+        /* Стиль для карточек с одной ссылкой */
+        .feature-link {
+            position: absolute;
+            top: 50%;
+            right: -150px;
+            transform: translateY(-50%);
+            display: flex;
+            align-items: center;
+            opacity: 0;
+            transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.1);
+            text-decoration: none;
+            color: var(--accent);
+            font-size: 18px;
+            font-weight: 500;
+        }
+        
+        .feature-link::after {
+            content: "→";
+            font-size: 24px;
+            margin-left: 10px;
+            transition: transform 0.3s ease;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+            background: rgba(44, 44, 46, 0.95);
+        }
+        
+        .feature-card:hover .feature-content {
+            opacity: 0;
+        }
+        
+        .feature-card:hover .option-items {
+            right: 0;
+        }
+        
+        .feature-card:hover .option-item {
+            transform: translateX(0);
+            opacity: 1;
+        }
+        
+        .feature-card:hover .feature-link {
+            right: 30px;
+            opacity: 1;
+        }
+        
+        .feature-card:hover .feature-link:hover::after {
+            transform: translateX(8px);
+        }
+        
+        .feature-title {
+            font-size: 18px;
+            margin-bottom: 0.75rem;
+            color: white;
+        }
+        
+        .feature-text {
+            color: var(--text-secondary);
+            font-size: 14px;
+            line-height: 1.6;
+            flex-grow: 1;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 1.5rem;
+            color: var(--text-secondary);
+            font-size: 13px;
+            border-top: 1px solid rgba(120, 120, 128, 0.2);
+            background: rgba(44, 44, 46, 0.8);
+            backdrop-filter: blur(10px);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Главная страница</h1>
+    </header>
+
+    <main class="main-content">
+        <div class="welcome-section">
+            <div class="welcome-card">
+                <h2 class="welcome-title">Добро пожаловать!</h2>
+                <p class="welcome-text">
+                    Этот сайт посвящен исследованию различных аспектов работы с операционными системами, 
+                    виртуальными машинами и файловыми системами. Здесь вы найдете полезную информацию, 
+                    сравнения и рекомендации по выбору инструментов для работы.
+                </p>
+            </div>
+            
+            <div class="features">
+                <div class="feature-card">
+                    <div class="feature-content">
+                        <h3 class="feature-title">ПО для работы с виртуальными носителями</h3>
+                        <p class="feature-text">
+                            Исследуйте лучшие инструменты для создания, управления и обслуживания
+							виртуальных носителей.
+                        </p>
+                    </div>
+                    <div class="option-items">
+                        <div class="option-item" onclick="window.location.href='daemon-tools.html'">DAEMON Tools Ultra</div>
+                        <div class="option-item" onclick="window.location.href='wincdemu.html'">WinCDEmu</div>
+                        <div class="option-item" onclick="window.location.href='imgburn.html'">ImgBurn</div>
+                    </div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-content">
+                        <h3 class="feature-title">Файловые менеджеры</h3>
+                        <p class="feature-text">
+                            Обзор современных файловых менеджеров для различных операционных систем 
+                            с анализом их возможностей и удобства использования.
+                        </p>
+                    </div>
+                    <div class="option-items">
+                        <div class="option-item" onclick="window.location.href='total_commander.html'">Total Commander</div>
+                        <div class="option-item" onclick="window.location.href='free_commander.html'">Free Commander</div>
+                        <div class="option-item" onclick="window.location.href='directory_opus.html'">Directory Opus</div>
+                    </div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-content">
+                        <h3 class="feature-title">Операционные системы</h3>
+                        <p class="feature-text">
+                            Сравнение популярных операционных систем, их преимущества и недостатки, 
+                            рекомендации по выбору для различных задач.
+                        </p>
+                    </div>
+                    <a href="os.html" class="feature-link">Перейти</a>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-content">
+                        <h3 class="feature-title">Файловые системы</h3>
+                        <p class="feature-text">
+                            Подробный анализ файловых систем, их характеристик, производительности 
+                            и оптимальных сценариев использования.
+                        </p>
+                    </div>
+                    <a href="filesystem.html" class="feature-link">Перейти</a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Курсовая работа. Все права защищены.</p>
+    </footer>
+</body>
+</html>

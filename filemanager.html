@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Выбор файлового менеджера</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=SF+Pro+Display:wght@300;400;500&family=SF+Pro+Text:wght@400;500&display=swap');
+        
+        body {
+            font-family: 'SF Pro Text', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.5;
+            margin: 0;
+            background-color: #1e1e1e;
+            color: #e0e0e0;
+            padding: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        .container {
+            max-width: 680px;
+            width: 100%;
+            margin: 40px auto;
+            padding: 40px;
+            background-color: #2a2a2a;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+        h1 {
+            text-align: center;
+            color: #ffffff;
+            margin-bottom: 40px;
+            font-weight: 500;
+            font-size: 28px;
+            letter-spacing: -0.5px;
+            font-family: 'SF Pro Display', sans-serif;
+        }
+        .buttons-container {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+        .link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 14px 24px;
+            background-color: #3a3a3a;
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            font-size: 17px;
+            font-weight: 400;
+            box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+        }
+        .link:hover {
+            background-color: #4a4a4a;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .link:active {
+            transform: translateY(0);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        .additional-link {
+            display: inline-flex;
+            align-items: center;
+            padding: 12px 24px;
+            background-color: #7e57c2;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: all 0.3s;
+            font-size: 15px;
+            font-weight: 500;
+            margin-top: 20px;
+        }
+        .additional-link:hover {
+            background-color: #9575cd;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Файловые менеджеры</h1>
+        <div class="buttons-container">
+            <a href="total_commander.html" class="link">Total Commander</a>
+            <a href="directory_opus.html" class="link">Directory Opus</a>
+            <a href="free_commander.html" class="link">FreeCommander</a>
+        </div>
+        <a href="filesystem.html" class="additional-link">Файловые системы →</a>
+    </div>
+</body>
+</html>

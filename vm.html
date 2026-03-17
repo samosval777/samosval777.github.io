@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> ManageEngine OpManager| IT-ресурс</title>
+    <style>
+        :root {
+            --primary: #9575cd;
+            --secondary: #b39ddb;
+            --light: #d1c4e9;
+            --dark: #7e57c2;
+            --text: #f3e5f5;
+            --accent: #ffab91;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #f3e5f5, #e1bee7);
+            color: #5d4037;
+        }
+        header {
+            background: var(--primary);
+            color: white;
+            padding: 1.5rem 0;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        nav {
+            background: var(--secondary);
+            padding: 0.8rem;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+            font-weight: 600;
+        }
+        nav a:hover {
+            background: var(--dark);
+            transform: translateY(-2px);
+        }
+        .container {
+            max-width: 900px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        h1, h2 {
+            color: var(--dark);
+        }
+        .fs-card {
+            background: #f9f9f9;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            border-left: 4px solid var(--accent);
+            transition: all 0.3s ease;
+        }
+        .fs-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+        }
+        .fs-card h3 {
+            color: var(--dark);
+            margin-top: 0;
+            display: flex;
+            align-items: center;
+        }
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+        .feature {
+            background: rgba(149, 117, 205, 0.1);
+            padding: 0.8rem;
+            border-radius: 5px;
+            border-left: 3px solid var(--secondary);
+        }
+        .selected {
+            background: rgba(149, 117, 205, 0.2);
+            border: 2px solid var(--primary);
+        }
+        .selection-reason {
+            background: rgba(255, 171, 145, 0.2);
+            padding: 1rem;
+            border-radius: 5px;
+            margin-top: 1rem;
+            border-left: 3px solid var(--accent);
+        }
+        .fs-icon {
+            height: 40px;
+            margin-right: 10px;
+        }
+        .btn {
+            display: inline-block;
+            background: var(--accent);
+            color: #5d4037;
+            padding: 0.6rem 1.2rem;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            margin-top: 1rem;
+            border: none;
+            cursor: pointer;
+        }
+        .btn:hover {
+            background: #ff8a65;
+            transform: translateY(-2px);
+        }
+        .back-btn {
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            background: var(--light);
+            color: var(--dark);
+        }
+        .info-block {
+            background: rgba(149, 117, 205, 0.1);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+            border-left: 4px solid var(--primary);
+        }
+        footer {
+            text-align: center;
+            padding: 1rem;
+            background: var(--dark);
+            color: white;
+            margin-top: 2rem;
+        }
+	.figure img {
+    	    max-width: 100%;
+    	    height: auto;
+	}
+
+	@media (max-width: 768px) {
+       .figure img {
+            max-width: 90%; /* Уменьшаем на мобильных */
+	}
+
+    </style>
+</head>
+<body>
+    <header>
+        <h1>ManageEngine OpManager</h1>
+    </header>
+    <nav>
+        <a href="index.html">Главная</a>
+        <a href="virtual.html">Виртуальные машины</a>
+        <a href="antivirus.html">Антивирусы</a>
+        <a href="os.html">Выбор ОС</a>
+        <a href="filesystem.html">Файловые системы</a>
+    </nav>
+    <div class="container">
+        <a href="virtual.html" class="btn back-btn">← Назад к списку ВМ</a>
+        
+        <div class="vm-card">
+ <h2>ManageEngine OpManager</h2>
+            
+            <h3>Описание</h3>
+            <p>ManageEngine OpManager — это система мониторинга ИТ-инфраструктуры, предназначенная для контроля работы физических и виртуальных машин, сетевых устройств, серверов и приложений. Программа используется для централизованного отслеживания состояния сети, оперативного реагирования на инциденты и получения аналитических данных. Оптимально подходит для организаций, стремящихся повысить надёжность и прозрачность работы виртуальных и физических систем.</p>
+            
+            <h3>Производитель и история разработки</h3>
+            <p>Разработка ведётся компанией Zoho Corporation под брендом ManageEngine. Первая версия OpManager появилась в начале 2000-х годов, и с тех пор система регулярно обновляется, приобретая новые функции и улучшения. Программа поддерживает виртуализированные среды (включая VMware и Hyper-V), что делает её актуальной в контексте управления операционными и виртуальными машинами.</p>
+            
+	    <a href="https://www.manageengine.com/network-monitoring/" 
+   		class="btn" 
+   		target="_blank" 
+   		rel="noopener noreferrer">
+   		Перейти на сайт 
+	    </a>
+
+            <h3>Основные возможности:</h3>
+            <ul>
+                <li>Мониторинг серверов, рабочих станций, сетевых устройств и виртуальных машин.</li>
+                <li>Отображение статуса устройств в реальном времени.</li>
+                <li>Визуальные панели (дашборды), карты и отчёты.</li>
+                <li>Настройка порогов, алертов и уведомлений.</li>
+                <li>Поддержка SNMP, WMI, CLI, VMware API.</li>
+                <li>Возможность тестирования в бесплатной версии (ограниченное число устройств).</li>
+            </ul>
+            
+            <h3> Интерфейс программы</h3>
+            <p>Сведения о рассматриваемой версии:Workstation 17.5.x virtual machine</p>
+            
+            <div class="figure">
+                <img src="images/opmanager-dashboard.jpg" alt="Интерфейс OpManager">
+            </div>  
+
+            <h3>Эксперименты с ПО</h3>
+            
+            <h4>1. Главная панель мониторинга</h4>
+            <p>После запуска OpManager открывается главная панель, отображающая ключевые метрики по всем отслеживаемым устройствам: количество работающих, недоступных, новых объектов и др. Панель содержит графические виджеты и блоки, которые можно настроить под конкретные задачи.</p>
+            
+            <div class="figure">
+                <img src="images/opmanager-dashboard.jpg" alt="Главная панель OpManager">
+                <figcaption>Рис. 1 – Главная панель OpManager</figcaption>
+            </div>
+            
+            <h4>2. Просмотр списка устройств</h4>
+            <p>Вкладка с устройствами предоставляет подробный список всех активных объектов в системе. Здесь отображаются IP-адреса, статус, типы устройств и время последнего обновления. Пользователь может фильтровать, сортировать и просматривать подробную информацию по каждому элементу.</p>
+            
+            <div class="figure">
+                <img src="images/opmanager-devices.jpg" alt="Список добавленных устройств">
+                <figcaption>Рис. 2 – Список добавленных устройств</figcaption>
+            </div>
+            
+            <h4>3. Карта сети</h4>
+            <p>OpManager позволяет визуализировать топологию сети в виде карты. На ней показано расположение устройств и связи между ними. Это облегчает восприятие общей структуры ИТ-инфраструктуры, а также помогает выявлять проблемные участки и изолированные сегменты.</p>
+            
+            <div class="figure">
+                <img src="images/opmanager-network-map.jpg" alt="Сетевая карта в OpManager">
+                <figcaption>Рис. 3 – Сетевая карта в OpManager</figcaption>
+            </div>
+            
+            <h3>Преимущества и недостатки</h3>
+            <div class="pros-cons">
+                <div class="pros">
+                    <h4>Плюсы:</h4>
+                    <ul>
+                        <li>Поддержка мониторинга виртуальных и физических систем.</li>
+                        <li>Удобный веб-интерфейс с визуальными элементами.</li>
+                        <li>Гибкая настройка панелей и представлений.</li>
+                        <li>Возможность использовать в учебных целях (демо или бесплатная версия).</li>
+                        <li>Отображение в реальном времени с высокой детализацией.</li>
+                    </ul>
+                </div>
+                <div class="cons">
+                    <h4>Минусы:</h4>
+                    <ul>
+                        <li>Установка и первичная настройка требуют времени.</li>
+                        <li>В бесплатной версии ограничено число устройств.</li>
+                        <li>Интерфейс на английском языке.</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <h3>Вывод</h3>
+            <p>ManageEngine OpManager — эффективный инструмент мониторинга виртуальных машин и операционных сред. Он сочетает визуализацию, автоматическое обнаружение устройств и гибкую настройку оповещений. Даже в бесплатной версии программа предоставляет достаточный функционал для ознакомления с технологиями мониторинга и управления ИТ-инфраструктурой, что делает её отличным выбором для учебных проектов.</p>
+            
+            <a href="virtual.html" class="btn to-top-btn">↑ К списку ВМ</a>
+        </div>
+    </div>
+    <footer>
+        <p>&copy; 2025</p>
+    </footer>
+</body>
+</html>

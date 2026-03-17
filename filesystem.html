@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Файловые системы | Курсовая работа</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=SF+Pro+Display:wght@300;400;500&family=SF+Pro+Text:wght@400;500&display=swap');
+        
+        :root {
+            --primary: #2c2c2e;
+            --secondary: #3a3a3c;
+            --accent: #007aff;
+            --text: #e5e5ea;
+            --text-secondary: #aeaeb2;
+            --background: #1c1c1e;
+            --card: rgba(44, 44, 46, 0.85);
+            --hover-bg: rgba(255, 255, 255, 0.1);
+        }
+        
+        body {
+            font-family: 'SF Pro Text', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                        url('https://cdn.shazoo.ru/75701_D5vJhZ9Rms_1401865948_watch_dogs_dedsec_str.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: var(--text);
+            min-height: 100vh;
+        }
+        
+        header {
+            background: rgba(44, 44, 46, 0.8);
+            color: var(--text);
+            padding: 1.5rem 2rem;
+            box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+        }
+        
+        h1, h2, h3, h4 {
+            font-family: 'SF Pro Display', sans-serif;
+            font-weight: 500;
+            margin: 0;
+        }
+        
+        h1 {
+            font-size: 24px;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background-color: var(--card);
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+        }
+        
+        .fs-card {
+            background: rgba(51, 51, 51, 0.8);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            border-left: 4px solid var(--accent);
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+        
+        .fs-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+            background: rgba(51, 51, 51, 0.95);
+        }
+        
+        .fs-card h3 {
+            margin-top: 0;
+            display: flex;
+            align-items: center;
+        }
+        
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+        
+        .feature {
+            background: rgba(0, 122, 255, 0.1);
+            padding: 0.8rem;
+            border-radius: 5px;
+            border-left: 3px solid var(--accent);
+            backdrop-filter: blur(10px);
+        }
+        
+        .selected {
+            background: rgba(0, 122, 255, 0.2);
+            border: 2px solid var(--accent);
+        }
+        
+        .selection-reason {
+            background: rgba(255, 149, 0, 0.1);
+            padding: 1rem;
+            border-radius: 5px;
+            margin-top: 1rem;
+            border-left: 3px solid #ff9500;
+            backdrop-filter: blur(10px);
+        }
+        
+        .fs-icon {
+            height: 40px;
+            margin-right: 10px;
+        }
+        
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            background: var(--accent);
+            color: #1e1e1e;
+            padding: 0.6rem 1.2rem;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            margin-top: 1rem;
+            border: none;
+            cursor: pointer;
+            font-size: 15px;
+        }
+        
+        .btn:hover {
+            background: #0a84ff;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        
+        .footer-btn {
+            text-align: center;
+            margin-top: 2rem;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 1.5rem;
+            color: var(--text-secondary);
+            font-size: 13px;
+            border-top: 1px solid rgba(120, 120, 128, 0.2);
+            background: rgba(44, 44, 46, 0.8);
+            backdrop-filter: blur(10px);
+        }
+        
+        ul {
+            margin: 16px 0;
+            padding-left: 24px;
+        }
+        
+        li {
+            margin-bottom: 10px;
+            padding-left: 8px;
+        }
+        
+        strong {
+            font-weight: 500;
+            color: #ffffff;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Файловые системы и разметка диска</h1>
+    </header>
+
+    <div class="container">
+        <div class="fs-card selected">
+            <h3><img src="https://cdn-icons-png.flaticon.com/512/888/888854.png" alt="NTFS" class="fs-icon">NTFS (Windows)</h3>
+            <div class="features">
+                <div class="feature">
+                    <h4>Основные характеристики</h4>
+                    <ul>
+                        <li>Поддержка файлов до 16 ТБ</li>
+                        <li>Журналирование</li>
+                        <li>Разрешения доступа</li>
+                        <li>Шифрование (EFS)</li>
+                    </ul>
+                </div>
+                <div class="feature">
+                    <h4>Использование</h4>
+                    <ul>
+                        <li>Основная ФС в Windows</li>
+                        <li>Рекомендуется для системных дисков</li>
+                        <li>Поддержка сжатия данных</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="selection-reason">
+                <h4>Причины выбора NTFS:</h4>
+                <ul>
+                    <li>Наиболее надежная файловая система для Windows</li>
+                    <li>Поддержка больших файлов и разделов</li>
+                    <li>Встроенные механизмы безопасности</li>
+                    <li>Оптимальная производительность</li>
+                </ul>
+            </div>
+            <p><strong>Эксперимент:</strong> Сравнение скорости чтения/записи с FAT32.</p>
+        </div>
+
+        <div class="fs-card">
+            <h3><img src="https://cdn-icons-png.flaticon.com/512/6124/6124995.png" alt="ext4" class="fs-icon">ext4 (Linux)</h3>
+            <div class="features">
+                <div class="feature">
+                    <h4>Основные характеристики</h4>
+                    <ul>
+                        <li>Поддержка томов до 1 ЭБ</li>
+                        <li>Отложенное выделение места</li>
+                        <li>Журналирование</li>
+                    </ul>
+                </div>
+                <div class="feature">
+                    <h4>Использование</h4>
+                    <ul>
+                        <li>Стандарт для Linux-дистрибутивов</li>
+                        <li>Поддержка прав UNIX</li>
+                        <li>Высокая надежность</li>
+                    </ul>
+                </div>
+            </div>
+            <p><strong>Эксперимент:</strong> Настройка квот для пользователей.</p>
+        </div>
+
+        <div class="fs-card">
+            <h3><img src="https://cdn-icons-png.flaticon.com/512/2/2235.png" alt="APFS" class="fs-icon">APFS (macOS)</h3>
+            <div class="features">
+                <div class="feature">
+                    <h4>Основные характеристики</h4>
+                    <ul>
+                        <li>Оптимизация для SSD</li>
+                        <li>Клонирование файлов</li>
+                        <li>Встроенное шифрование</li>
+                    </ul>
+                </div>
+                <div class="feature">
+                    <h4>Использование</h4>
+                    <ul>
+                        <li>Основная ФС в macOS и iOS</li>
+                        <li>Мгновенные снимки</li>
+                        <li>Эффективное использование пространства</li>
+                    </ul>
+                </div>
+            </div>
+            <p><strong>Эксперимент:</strong> Создание зашифрованного контейнера.</p>
+        </div>
+
+        <div class="footer-btn">
+            <a href="main.html" class="btn">← На главную</a>
+        </div>
+    </div>
+    
+    <footer>
+        <p>&copy; 2025 Курсовая работа. Все права защищены.</p>
+    </footer>
+</body>
+</html>
